@@ -1,0 +1,43 @@
+﻿<Window x:Class="TodoList.View.Add"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TodoList.View"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Add Task" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Style="{StaticResource TitleStyle}" Grid.Row="0" Grid.ColumnSpan="2">Add Task</TextBlock>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Margin="5">Title:</TextBlock>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="5" Text="{Binding Path=Title,Mode=TwoWay}"></TextBox>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Margin="5">Content:</TextBlock>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="5" Text="{Binding Path=Content,Mode=TwoWay}"></TextBox>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Margin="5">EndTime:</TextBlock>
+        <DatePicker Grid.Row="3" Grid.Column="1" Margin="5" Text="{Binding Path=EndTime,Mode=TwoWay}"></DatePicker>
+
+        <CheckBox Grid.Row="4" Grid.Column="1" Margin="5" IsChecked="{Binding Path=IsStar,Mode=TwoWay}">star</CheckBox>
+        
+        <Button x:Name="btnAdd" Grid.Row="5" Grid.ColumnSpan="2" Margin="5" Click="btnAdd_Click">Add</Button>
+
+        <ContentControl Grid.Row="6" Grid.ColumnSpan="2" 
+                        Content="{Binding}"
+                        ContentTemplate="{StaticResource TaskItem}"></ContentControl>
+    </Grid>
+</Window>
