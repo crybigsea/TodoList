@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:TodoList"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         Title="TodoList" SizeToContent="WidthAndHeight">
+    <Window.Resources>
+        <CollectionViewSource x:Key="todoViewSource"></CollectionViewSource>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -22,8 +25,9 @@
 
         <Button x:Name="BtnAdd" Grid.Row="0" Grid.Column="1" Margin="8,10,8,8" Click="BtnAdd_Click">Add</Button>
         
-        <CheckBox x:Name="ckAll" Grid.Row="1" Grid.ColumnSpan="2" Margin="8" Style="{StaticResource CheckBoxStyle}">Show All</CheckBox>
+        <CheckBox x:Name="ckAll" Grid.Row="1" Grid.ColumnSpan="2" Margin="8" Style="{StaticResource CheckBoxStyle}"
+                  Checked="ckAll_Checked" Unchecked="ckAll_Unchecked">Show All</CheckBox>
 
-        <ListBox x:Name="lbTodoList" Grid.Row="2" Grid.ColumnSpan="2" ItemTemplate="{StaticResource TaskItem}"></ListBox>
+        <ListBox x:Name="lbTodoList" Grid.Row="2" Grid.ColumnSpan="2" ItemsSource="{Binding Source={StaticResource todoViewSource}}" ItemTemplate="{StaticResource TaskItem}"></ListBox>
     </Grid>
 </Window>

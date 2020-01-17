@@ -13,5 +13,7 @@ namespace TodoList.Model
         public DateTime EndTime { get; set; }
 
         public bool IsStar { get; set; }
+
+        public bool IsFinish { get; set; }
     }
 }
