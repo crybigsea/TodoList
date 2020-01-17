@@ -18,7 +18,7 @@
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource TitleStyle}">todo list</TextBlock>
